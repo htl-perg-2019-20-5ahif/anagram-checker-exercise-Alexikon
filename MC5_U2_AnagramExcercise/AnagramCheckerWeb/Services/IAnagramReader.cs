@@ -7,6 +7,6 @@ namespace AnagramCheckerWeb.Services
 {
     interface IAnagramReader
     {
-        Task<string> ReadAnagram();
+        Task<IEnumerable<string>> ReadAnagram();
     }
 }

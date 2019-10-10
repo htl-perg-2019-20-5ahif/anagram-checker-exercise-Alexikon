@@ -8,6 +8,8 @@ namespace AnagramLibrary
 
         public string W2 { get; set; }
 
+        // Avoid static functions when using dependency injection.
+        // They are hard to test.
         public static bool CheckAnagram(string Word1, string Word2)
         {
             char[] chArr1 = Word1.ToCharArray();

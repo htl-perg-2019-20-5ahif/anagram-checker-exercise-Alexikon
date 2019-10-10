@@ -7,6 +7,8 @@ namespace AnagramCheckerWeb.Services
 {
     internal class AnagramPermutater : IAnagramPermutater
     {
+        // Would have been nice if you had put this logic into the
+        // class library, too.
         public IEnumerable<string> Permutate(string word)
         {
             if (word.Length == 1) return new List<string> { word };

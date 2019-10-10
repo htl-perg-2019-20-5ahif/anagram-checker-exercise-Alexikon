@@ -16,12 +16,14 @@ namespace AnagramCheckerWeb.Controllers
     {
         private readonly IAnagramReader reader;
         private readonly IAnagramComparer comparer;
+        private readonly IAnagramPermutater permutater;
         private readonly ILogger<AnagramController> logger;
 
-        public AnagramController(IAnagramReader reader, IAnagramComparer comparer, ILogger<AnagramController> logger)
+        public AnagramController(IAnagramReader reader, IAnagramComparer comparer, IAnagramPermutater permutater, ILogger<AnagramController> logger)
         {
             this.reader = reader;
             this.comparer = comparer;
+            this.permutater = permutater;
             this.logger = logger;
         }
 
@@ -47,7 +49,7 @@ namespace AnagramCheckerWeb.Controllers
         {
             if(string.IsNullOrEmpty(word))
             {
-                NotFound();
+                BadRequest();
             }
 
             var anagrams = await reader.ReadAnagram();
@@ -59,9 +61,21 @@ namespace AnagramCheckerWeb.Controllers
                 return Ok(foundAnag);
             }
 
-            logger.LogInformation("word \"{word}\" not found in anagram list", word);
-
+            logger.LogWarning("word \"{word}\" not found in anagram list", word);
             return NotFound();
+        }
+
+        [HttpGet]
+        [Route("getPermutations/")]
+        public IActionResult GetPermutations([FromQuery(Name = "w")] string word)
+        {
+            if (string.IsNullOrEmpty(word))
+            {
+                BadRequest();
+            }
+
+            var perumutated = permutater.Permutate(word);
+            return Ok(perumutated);
         }
     }
 }

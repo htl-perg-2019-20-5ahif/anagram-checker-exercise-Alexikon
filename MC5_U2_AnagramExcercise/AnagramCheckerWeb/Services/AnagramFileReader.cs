@@ -10,12 +10,12 @@ namespace AnagramCheckerWeb.Services
     internal class AnagramFileReader : IAnagramReader
     {
         private readonly IConfiguration config;
-        private readonly ILogger<AnagramFileReader> logger;
+        //private readonly ILogger<AnagramFileReader> logger;
 
-        public AnagramFileReader(IConfiguration config, ILogger<AnagramFileReader> logger)
+        public AnagramFileReader(IConfiguration config, /*ILogger<AnagramFileReader> logger*/)
         {
             this.config = config;
-            this.logger = logger;
+            //this.logger = logger;
         }
 
         /// <summary>

@@ -9,12 +9,12 @@ namespace AnagramCheckerWeb.Services
 {
     internal class AnagramComparer : IAnagramComparer
     {
-        private readonly ILogger<AnagramComparer> logger;
+        /*private readonly ILogger<AnagramComparer> logger;
 
         public AnagramComparer(ILogger<AnagramComparer> logger)
         {
             this.logger = logger;
-        }
+        }*/
 
         public IEnumerable<string> Compare(IEnumerable<string> anagrams, string word)
         {

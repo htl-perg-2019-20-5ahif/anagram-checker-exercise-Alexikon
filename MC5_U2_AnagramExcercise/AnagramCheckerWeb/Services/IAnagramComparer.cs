@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace AnagramCheckerWeb.Services
 {
-    public interface IAnagramReader
+    public interface IAnagramComparer
     {
-        Task<IEnumerable<string>> ReadAnagram();
+        IEnumerable<string> Compare(IEnumerable<string> anagrams, string word);
     }
 }

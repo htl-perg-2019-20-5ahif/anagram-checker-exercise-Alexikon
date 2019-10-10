@@ -26,6 +26,7 @@ namespace AnagramCheckerWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IAnagramReader, AnagramFileReader>();
+            services.AddTransient<IAnagramComparer, AnagramComparer>();
 
             services.AddControllers();
         }

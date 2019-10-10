@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnagramCheckerWeb.Services
 {
-    public class AnagramFileReader : IAnagramReader
+    internal class AnagramFileReader : IAnagramReader
     {
         private readonly IConfiguration config;
         private readonly ILogger<AnagramFileReader> logger;
